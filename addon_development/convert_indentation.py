@@ -9,8 +9,8 @@ class ConvertAddonIndentation(bpy.types.Operator):
     bl_description = ""
     bl_options = {"REGISTER"}
 
-    old_indentation = StringProperty(default = "\t")
-    new_indentation = StringProperty(default = "    ")
+    old_indentation: StringProperty(default = "\t")
+    new_indentation: StringProperty(default = "    ")
 
     @classmethod
     def poll(cls, context):

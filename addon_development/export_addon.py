@@ -10,7 +10,7 @@ class ExportAddon(bpy.types.Operator):
     bl_description = "Save a .zip file of the addon"
     bl_options = {"REGISTER"}
 
-    filepath = StringProperty(subtype = "FILE_PATH")
+    filepath: StringProperty(subtype = "FILE_PATH")
 
     @classmethod
     def poll(cls, context):

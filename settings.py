@@ -11,34 +11,34 @@ def prop_changed(self, context):
             area.tag_redraw()
 
 class CompletionProviders (bpy.types.PropertyGroup):
-    use_jedi_completion = BoolProperty(default = True, name = "Use Jedi Completion",
+    use_jedi_completion: BoolProperty(default = True, name = "Use Jedi Completion",
         update = prop_changed, description = "Use the Jedi autocompletion library for python")
-    use_word_completion = BoolProperty(default = True, name = "Use Word Completion",
+    use_word_completion: BoolProperty(default = True, name = "Use Word Completion",
         update = prop_changed, description = "The context box will also contain words that you already used in the file")
-    use_operator_completion = BoolProperty(default = True, name = "Use Operator Completion",
+    use_operator_completion: BoolProperty(default = True, name = "Use Operator Completion",
         update = prop_changed, description = "Activate the autocompletion for calling operators (bpy.ops)")
 
 class ContextBoxProperties(bpy.types.PropertyGroup):
-    font_size = IntProperty(default = 12, name = "Font Size", min = 10, update = prop_changed)
-    line_height = IntProperty(default = 21, name = "Line Height", min = 5, update = prop_changed)
-    width = IntProperty(default = 200, name = "Width", min = 10, update = prop_changed)
-    padding = IntProperty(default = 4, name = "Padding", min = 0, update = prop_changed)
-    lines = IntProperty(default = 8, name = "Lines", min = 1, update = prop_changed)
+    font_size: IntProperty(default = 12, name = "Font Size", min = 10, update = prop_changed)
+    line_height: IntProperty(default = 21, name = "Line Height", min = 5, update = prop_changed)
+    width: IntProperty(default = 200, name = "Width", min = 10, update = prop_changed)
+    padding: IntProperty(default = 4, name = "Padding", min = 0, update = prop_changed)
+    lines: IntProperty(default = 8, name = "Lines", min = 1, update = prop_changed)
 
 class DescriptionBoxProperties(bpy.types.PropertyGroup):
-    font_size = IntProperty(default = 12, name = "Font Size", min = 10, update = prop_changed)
-    line_height = IntProperty(default = 21, name = "Line Height", min = 5, update = prop_changed)
-    padding = IntProperty(default = 4, name = "Padding", min = 0, update = prop_changed)
+    font_size: IntProperty(default = 12, name = "Font Size", min = 10, update = prop_changed)
+    line_height: IntProperty(default = 21, name = "Line Height", min = 5, update = prop_changed)
+    padding: IntProperty(default = 4, name = "Padding", min = 0, update = prop_changed)
 
 
 class AddonPreferences(bpy.types.AddonPreferences):
     bl_idname = addon_name
 
-    completion_providers = PointerProperty(type = CompletionProviders)
-    context_box = PointerProperty(type = ContextBoxProperties)
-    description_box = PointerProperty(type = DescriptionBoxProperties)
+    completion_providers: PointerProperty(type = CompletionProviders)
+    context_box: PointerProperty(type = ContextBoxProperties)
+    description_box: PointerProperty(type = DescriptionBoxProperties)
     
-    debug = BoolProperty(default = False, name = "Debug",
+    debug: BoolProperty(default = False, name = "Debug",
         update = prop_changed, description = "Turn on to get some debug information from this addon")
 
     def draw(self, context):

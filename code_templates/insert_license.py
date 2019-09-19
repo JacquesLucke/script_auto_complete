@@ -9,8 +9,8 @@ class InsertLicense(bpy.types.Operator, InsertTemplateBase):
     bl_label = "Insert License"
     bl_description = ""
 
-    author_name = StringProperty(name = "Name", default = bpy.context.user_preferences.system.author)
-    author_mail = StringProperty(name = "eMail", default = "")
+    author_name: StringProperty(name = "Name", default = bpy.context.user_preferences.system.author)
+    author_mail: StringProperty(name = "eMail", default = "")
 
     def invoke(self, context, event):
         dpiFactor = getDpiFactor()

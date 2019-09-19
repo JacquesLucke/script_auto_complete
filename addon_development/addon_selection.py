@@ -26,7 +26,7 @@ class FindExistingAddon(bpy.types.Operator):
             items.append((addon, addon, ""))
         return items
 
-    item = bpy.props.EnumProperty(items = get_items)
+    item: bpy.props.EnumProperty(items = get_items)
 
     def invoke(self, context, event):
         context.window_manager.invoke_search_popup(self)
@@ -66,7 +66,7 @@ class CreateNewAddon(bpy.types.Operator):
     bl_description = "Create a folder in the addon directory and setup a basic code base"
     bl_options = {"REGISTER"}
 
-    new_addon_type = EnumProperty(default = "BASIC", items = new_addon_type_items)
+    new_addon_type: EnumProperty(default = "BASIC", items = new_addon_type_items)
 
     @classmethod
     def poll(cls, context):

@@ -25,7 +25,7 @@ bl_info = {
     "description": "Autocompletion, templates and addon development tools for the text editor.",
     "author":      "Jacques Lucke",
     "version":     (2, 0, 0),
-    "blender":     (2, 7, 4),
+    "blender":     (2, 80, 0),
     "location":    "Text Editor",
     "category":    "Development"
     }

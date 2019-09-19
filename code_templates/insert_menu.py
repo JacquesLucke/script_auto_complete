@@ -14,7 +14,7 @@ class InsertMenu(bpy.types.Operator, InsertClassTemplateBase):
     bl_label = "Insert Menu"
     bl_description = ""
 
-    menu_type = EnumProperty(items = menu_type_items, default = "NORMAL")
+    menu_type: EnumProperty(items = menu_type_items, default = "NORMAL")
 
     def execute(self, context):
         if self.menu_type == "NORMAL": code = menu_template

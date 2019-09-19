@@ -9,7 +9,7 @@ class InsertKeymap(bpy.types.Operator, InsertTemplateBase):
     bl_label = "Insert Keymap"
     bl_description = ""
 
-    insert_callers = BoolProperty(name = "Extend Register Functions", default = True,
+    insert_callers: BoolProperty(name = "Extend Register Functions", default = True,
         description = "Insert code in register and unregister functions if they exist")
 
     def invoke(self, context, event):
