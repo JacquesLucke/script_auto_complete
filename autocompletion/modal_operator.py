@@ -36,7 +36,7 @@ class Autocomplete(bpy.types.Panel):
             providers = get_preferences().completion_providers
             layout.prop(providers, "use_jedi_completion")
         else:
-            layout.label("Jedi library not found", icon = "ERROR")
+            layout.label(text="Jedi library not found", icon = "ERROR")
 
 
 class StartModalOperator(bpy.types.Operator):

@@ -9,7 +9,7 @@ class InsertLicense(bpy.types.Operator, InsertTemplateBase):
     bl_label = "Insert License"
     bl_description = ""
 
-    author_name: StringProperty(name = "Name", default = bpy.context.user_preferences.system.author)
+    #author_name: StringProperty(name = "Name", default = bpy.context.preferences.filepaths.author)
     author_mail: StringProperty(name = "eMail", default = "")
 
     def invoke(self, context, event):
@@ -18,12 +18,12 @@ class InsertLicense(bpy.types.Operator, InsertTemplateBase):
 
     def draw(self, context):
         layout = self.layout
-        layout.prop(self, "author_name", text = "Name")
+        #layout.prop(self, "author_name", text = "Name")
         layout.prop(self, "author_mail", text = "E-Mail")
 
     def execute(self, context):
         changes = {
-            "YOUR_NAME" : self.author_name,
+            #"YOUR_NAME" : self.author_name,
             "YOUR_MAIL" : self.author_mail,
             "CURRENT_YEAR" : str(datetime.now().year) }
         insert_template(license_template, changes)

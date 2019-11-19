@@ -12,7 +12,7 @@ def indent(lines, indentation = 4):
 
 @join_lines
 def make_operator_description(operator, width = 70):
-    rna = operator.get_rna().bl_rna
+    rna = operator.get_rna_type().bl_rna
     yield rna.name
     yield ""
     yield from textwrap.wrap(rna.description, width)
@@ -37,7 +37,7 @@ def make_property_description(property, width = 70):
         yield "{} {}".format(identifier, description)
 
 def get_operator_parameters(operator):
-    rna = operator.get_rna().bl_rna
+    rna = operator.get_rna_type().bl_rna
     return [prop for prop in rna.properties if prop.identifier != "rna_type"]
 
 def get_enum_items_string(property, width = 70):

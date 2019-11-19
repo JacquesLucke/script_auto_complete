@@ -324,7 +324,7 @@ fake_context_properties = [
     FP("lattice", "Lattice"),
     FP("curve", "Curve"),
     FP("meta_ball", "MetaBall"),
-    FP("lamp", "Lamp"),
+    FP("light", "Light"),
     FP("speaker", "Speaker"),
     FP("camera", "Camera"),
     FP("material", "Material"),

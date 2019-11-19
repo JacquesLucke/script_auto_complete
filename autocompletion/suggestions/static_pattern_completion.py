@@ -31,7 +31,7 @@ def iter_static_completions(text_block):
 space_properties = bpy.types.Space.bl_rna.properties
 space_types = sorted([item.identifier for item in space_properties["type"].enum_items])
 
-region_types = ["WINDOW", "HEADER", "CHANNELS", "TEMPORARY", "UI", "TOOLS", "TOOL_PROPS", "PREVIEW"]
+region_types = ["WINDOW", "HEADER", "CHANNELS", "TEMPORARY", "UI", "UI", "TOOL_PROPS", "PREVIEW"]
 
 handlers = [name for name in dir(bpy.app.handlers) if not name.startswith("_")]
 
