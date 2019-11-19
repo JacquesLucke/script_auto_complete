@@ -18,9 +18,9 @@ class NewFile(bpy.types.Operator):
     bl_description = "Create a new file in this directory"
     bl_options = {"REGISTER"}
 
-    directory = StringProperty(name = "Directory", default = "")
-    name = StringProperty(name = "File Name", default = "")
-    content = StringProperty(name = "Content", default = "")
+    directory: StringProperty(name = "Directory", default = "")
+    name: StringProperty(name = "File Name", default = "")
+    content: StringProperty(name = "Content", default = "")
 
     @classmethod
     def poll(cls, context):
@@ -48,8 +48,8 @@ class NewDirectory(bpy.types.Operator):
     bl_description = "Create a new subdirectory"
     bl_options = {"REGISTER"}
 
-    directory = StringProperty(name = "Directory", default = "")
-    name = StringProperty(name = "Directory Name", default = "")
+    directory: StringProperty(name = "Directory", default = "")
+    name: StringProperty(name = "Directory Name", default = "")
 
     @classmethod
     def poll(cls, context):
@@ -74,7 +74,7 @@ class FileMenuOpener(bpy.types.Operator):
     bl_idname = "code_autocomplete.open_file_menu"
     bl_label = "Open File Menu"
 
-    path = StringProperty(name = "Path", default = "")
+    path: StringProperty(name = "Path", default = "")
 
     def invoke(self, context, event):
         context.window_manager.popup_menu(self.drawMenu, title = "{} - File Menu".format(os.path.basename(self.path)))
@@ -105,7 +105,7 @@ class OpenFile(bpy.types.Operator):
     bl_description = "Load the file into the text editor"
     bl_options = {"REGISTER"}
 
-    path = StringProperty(name = "Path", default = "")
+    path: StringProperty(name = "Path", default = "")
 
     def execute(self, context):
         text = None
@@ -126,7 +126,7 @@ class OpenExternalFileBrowser(bpy.types.Operator):
     bl_description = ""
     bl_options = {"REGISTER"}
 
-    directory = StringProperty(name = "Directory", default = "")
+    directory: StringProperty(name = "Directory", default = "")
 
     def execute(self, context):
         bpy.ops.wm.path_open(filepath = self.directory)
@@ -139,8 +139,8 @@ class RenameFile(bpy.types.Operator):
     bl_description = ""
     bl_options = {"REGISTER"}
 
-    path = StringProperty(name = "Directory", default = "")
-    new_name = StringProperty(name = "Directory", description = "New file name", default = "")
+    path: StringProperty(name = "Directory", default = "")
+    new_name: StringProperty(name = "Directory", description = "New file name", default = "")
 
     def invoke(self, context, event):
         self.new_name = os.path.basename(self.path)
@@ -169,7 +169,7 @@ class DeleteFile(bpy.types.Operator):
     bl_description = "Delete file on the hard drive"
     bl_options = {"REGISTER"}
 
-    path = StringProperty(name = "Directory", default = "")
+    path: StringProperty(name = "Directory", default = "")
 
     def invoke(self, context, event):
         return context.window_manager.invoke_confirm(self, event)

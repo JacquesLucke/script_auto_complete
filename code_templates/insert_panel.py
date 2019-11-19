@@ -21,7 +21,7 @@ panel_template = '''class CLASS_NAME(bpy.types.Panel):
     bl_idname = "ID_NAME"
     bl_label = "LABEL"
     bl_space_type = "VIEW_3D"
-    bl_region_type = "TOOLS"
+    bl_region_type = "UI"
     bl_category = "category"
 
     def draw(self, context):

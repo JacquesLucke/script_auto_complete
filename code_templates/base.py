@@ -40,7 +40,7 @@ class InsertTemplateBase:
         return TextBlock.get_active()
 
 class InsertClassTemplateBase(InsertTemplateBase):
-    class_name = StringProperty(name = "Class Name", default = "")
+    class_name: StringProperty(name = "Class Name", default = "")
 
     def invoke(self, context, event):
         dpiFactor = getDpiFactor()

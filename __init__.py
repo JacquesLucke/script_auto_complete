@@ -25,7 +25,7 @@ bl_info = {
     "description": "Autocompletion, templates and addon development tools for the text editor.",
     "author":      "Jacques Lucke",
     "version":     (2, 0, 0),
-    "blender":     (2, 7, 4),
+    "blender":     (2, 80, 0),
     "location":    "Text Editor",
     "category":    "Development"
     }
@@ -75,17 +75,73 @@ from . addon_development import AddonDevelopmentSceneProperties
 from . quick_operators import register_menus, unregister_menus
 from . code_templates.base import draw_template_menu
 
+
+classes = (
+    # code_autocomplete_insert_template_menu,
+    # code_autocomplete.build_script,
+    # code_autocomplete.correct_whitespaces,
+    # code_autocomplete.convert_addon_indentation,
+    # SolveWhitespaceInconsistency,
+    # SelectWholeString,
+    # ConvertFileIndentation,
+    SelectTextBlockMenu,
+    OpenTextBlock,
+    CompletionProviders ,
+    ContextBoxProperties,
+    DescriptionBoxProperties,
+    AddonPreferences,
+    TextBlock,
+    Provider,
+    Completion,
+    JediCompletion,
+    JediCompletionProvider,
+    OperatorCompletion,
+    ParameterCompletion,
+    OperatorCompletionProvider,
+    WordCompletion,
+    WordCompletionProvider,
+    BlockEvent,
+    AutocompleteHandler,
+    ContextUI,
+    ActiveTextArea,
+    AddonDeveloperPanel,
+    AddonFilesPanel,
+    SetDirectoryVisibility,
+    RunAddon,
+    RestartBlender,
+    NewFile,
+    NewDirectory,
+    FileMenuOpener,
+    OpenFile,
+    OpenExternalFileBrowser,
+    RenameFile,
+    DeleteFile,
+    SaveFiles,
+    ExportAddon,
+    ConvertAddonIndentation,
+    FindExistingAddon,
+    MakeAddonNameValid,
+    CreateNewAddon,
+    AddonDevelopmentSceneProperties,
+    TextBox,
+    ListItem,
+    ListBox,
+    Rectangle,
+)
+
 def register():
-    bpy.utils.register_module(__name__)
+    for i in classes:
+        bpy.utils.register_class(i)
     register_keymaps()
     register_menus()
     bpy.types.TEXT_MT_templates.append(draw_template_menu)
-    bpy.types.Scene.addon_development = bpy.props.PointerProperty(name = "Addon Development", type = AddonDevelopmentSceneProperties)
+    bpy.types.Scene.addon_development: bpy.props.PointerProperty(name = "Addon Development", type = AddonDevelopmentSceneProperties)
 
     print("Registered Code Autocomplete with {} modules.".format(len(modules)))
 
 def unregister():
-    bpy.utils.unregister_module(__name__)
+    for i in classes:
+        bpy.utils.unregister_class(i)
     unregister_keymaps()
     unregister_menus()
     bpy.types.TEXT_MT_templates.remove(draw_template_menu)

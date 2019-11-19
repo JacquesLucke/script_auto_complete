@@ -47,7 +47,7 @@ def generate_fake_bpy():
 
 def create_init():
     path = os.path.join(directory, "__init__.py")
-    file = open(path, "w+", encoding='utf-8')
+    file = open(path, "w+")
     file.write(init_content)
     file.close()
 
@@ -248,7 +248,7 @@ def get_property_declaration(property):
 
 def write_code_file(name, code):
     path = os.path.join(private_path, name.lower() + ".py")
-    file = open(path, "w+", encoding='utf-8')
+    file = open(path, "w+")
     file.write(code)
     file.close()
 
@@ -324,7 +324,7 @@ fake_context_properties = [
     FP("lattice", "Lattice"),
     FP("curve", "Curve"),
     FP("meta_ball", "MetaBall"),
-    FP("lamp", "Lamp"),
+    FP("light", "Light"),
     FP("speaker", "Speaker"),
     FP("camera", "Camera"),
     FP("material", "Material"),

@@ -112,8 +112,8 @@ class SetDirectoryVisibility(bpy.types.Operator):
     bl_description = ""
     bl_options = {"REGISTER"}
 
-    directory = StringProperty(name = "Directory", default = "")
-    visibility = BoolProperty(name = "Visibility", default = True)
+    directory: StringProperty(name = "Directory", default = "")
+    visibility: BoolProperty(name = "Visibility", default = True)
 
     def execute(self, context):
         global directory_visibility

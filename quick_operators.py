@@ -44,9 +44,9 @@ class ConvertFileIndentation(bpy.types.Operator):
     bl_description = ""
     bl_options = {"REGISTER"}
 
-    path = StringProperty()
-    old_indentation = StringProperty(default = "\t")
-    new_indentation = StringProperty(default = "    ")
+    path: StringProperty()
+    old_indentation: StringProperty(default = "\t")
+    new_indentation: StringProperty(default = "    ")
 
     @classmethod
     def poll(cls, context):
@@ -85,7 +85,7 @@ class SelectTextBlockMenu(bpy.types.Menu):
         layout = self.layout
 
         if len(bpy.data.texts) == 0:
-            layout.label("There are no texts in this file", icon = "INFO")
+            layout.label(text="There are no texts in this file", icon = "INFO")
         else:
             for text in bpy.data.texts:
                 operator = layout.operator("code_autocomplete.open_text_block", text = text.name)
@@ -97,7 +97,7 @@ class OpenTextBlock(bpy.types.Operator):
     bl_description = ""
     bl_options = {"REGISTER"}
 
-    name = StringProperty()
+    name: StringProperty()
 
     @classmethod
     def poll(cls, context):
@@ -142,9 +142,10 @@ def format_menu_extension(self, context):
 
 
 def register_menus():
-    bpy.types.TEXT_MT_toolbox.append(right_click_menu_extension)
+    bpy.types.TEXT_MT_context_menu.append(right_click_menu_extension)
     bpy.types.TEXT_MT_format.append(format_menu_extension)
 
 def unregister_menus():
-    bpy.types.TEXT_MT_toolbox.remove(right_click_menu_extension)
+    bpy.types.TEXT_MT_context_menu.remove(right_click_menu_extension)
     bpy.types.TEXT_MT_format.remove(format_menu_extension)
+
