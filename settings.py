@@ -45,14 +45,14 @@ class AddonPreferences(bpy.types.AddonPreferences):
         layout = self.layout
 
         col = layout.column()
-        col.label("Completion Providers:")
+        col.label(text="Completion Providers:")
         col.prop(self.completion_providers, "use_jedi_completion", "Jedi")
         col.prop(self.completion_providers, "use_word_completion", "Existing Words")
         col.prop(self.completion_providers, "use_operator_completion", "Operators")
 
         row = layout.row()
         col = row.column(align = True)
-        col.label("Context Box")
+        col.label(text="Context Box")
         col.prop(self.context_box, "font_size")
         col.prop(self.context_box, "line_height")
         col.prop(self.context_box, "width")
@@ -60,7 +60,7 @@ class AddonPreferences(bpy.types.AddonPreferences):
         col.prop(self.context_box, "lines")
 
         col = row.column(align = True)
-        col.label("Description Box")
+        col.label(text="Description Box")
         col.prop(self.description_box, "font_size")
         col.prop(self.description_box, "line_height")
         col.prop(self.description_box, "padding")
@@ -68,5 +68,5 @@ class AddonPreferences(bpy.types.AddonPreferences):
         layout.prop(self, "debug")
 
 def get_preferences():
-    addon = bpy.context.user_preferences.addons.get(addon_name)
+    addon = bpy.context.preferences.addons.get(addon_name)
     return getattr(addon, "preferences", None)
